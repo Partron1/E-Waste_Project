@@ -27,6 +27,8 @@ Electrical and electronic equipment (EEE) has become essential to everyday life.
 
 Source : (Global E-waste Monitor 20220){https://www.itu.int/pub/D-GEN-E_WASTE.01-2020}
 
+![picture](https://github.com/user-attachments/assets/474d25a6-4341-476f-ab9b-8243e62f9906)
+
 ### KEY STAKEHOLDERS:
 
 #### European Environmental Agency (EEA):
@@ -214,3 +216,112 @@ ggplot(yearly_avg, aes(x = year, y = avg_ewaste )) +
     plot.title = element_text(face = "bold", hjust = 0.5), 
     plot.subtitle = element_text(hjust = 0.4))
 ```
+![000010](https://github.com/user-attachments/assets/c71d7a50-4827-43e4-9003-10646b9db311)
+
+### Country Comparison(latest year)
+```
+# Get latest year data
+latest_year <- max(ewaste_clean$year)
+
+latest_data <- ewaste_clean %>%
+  filter(year == latest_year) %>%
+  arrange(desc(`e_waste_recycled`))
+
+# Get top 10 countries by recycling rate
+latest_data <- ewaste_clean %>% 
+  filter(year == latest_year) %>% 
+  arrange(desc(e_waste_recycled)) %>% 
+  slice_head(n = 10)
+
+ggplot(latest_data, aes(x = reorder(country, `e_waste_recycled`), 
+                        y = `e_waste_recycled`)
+       ) + 
+  geom_col(fill = "#006837", width = 0.6) +
+  coord_flip() +
+  labs(title = paste("Top 10 E-Waste Recycling Rate by Country -", latest_year),
+       x = "Country",
+       y = "Recycling Rate (%)"
+       ) +
+  scale_y_continuous(labels = percent_format(scale = 1), expand = c(0, 0)
+                     ) +
+  theme_minimal() +
+  theme(
+    panel.grid.major.y = element_blank(),
+    plot.title = element_text(face = "bold", hjust = 0.5))
+```
+![000013](https://github.com/user-attachments/assets/a52e5039-3491-442e-a321-386c0ba750e3)
+
+### Heatmap of All Countiries Overtime
+```
+ggplot(ewaste_clean, aes(x = year, y = country, fill = `e_waste_recycled`)
+       ) + 
+  geom_tile() + 
+  scale_fill_gradient(low = "#ffffcc", high = "#006837", 
+                      name = "Recycling %", 
+                      labels = percent_format(scale = 1)
+                      ) + 
+  labs(title = "E-Waste Recycling Rates Heatmap", 
+       x = "Year", 
+       y = "Country") + 
+  theme_minimal() + 
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)
+        )
+```
+![000012](https://github.com/user-attachments/assets/920bba00-94ea-4336-ac79-9683a7e56e17)
+
+### Top & Bottom Performers Comparison
+```
+# Identify top and bottom performers
+top_countries <- country_stats %>%
+  slice_max(avg_rate, n = 5) %>%
+  pull(country)
+
+bottom_countries <- country_stats %>%
+  slice_min(avg_rate, n = 5) %>%
+  pull(country)
+
+selected_countries <- ewaste_clean %>%
+  filter(country %in% c(top_countries, bottom_countries))
+
+ggplot(selected_countries, aes(x = year, y = `e_waste_recycled`, 
+                              color = country, group = country)
+       ) +
+  geom_line(size = 1) +
+  geom_point(size = 3) +
+  labs(title = "E-Waste Recycling Rate Trends: Top vs Bottom Performers",
+       x = "Year",
+       y = "Recycling Rate (%)") +
+  scale_y_continuous(labels = percent_format(scale = 1)
+                     ) +
+   scale_x_continuous(
+    breaks = pretty_breaks(), 
+    labels = function(x) format(x, nsmall = 0)) +
+  theme_minimal() +
+  theme(legend.position = "bottom") +
+  scale_color_brewer(palette = "Paired")
+```
+![000014](https://github.com/user-attachments/assets/f541e9ac-7739-4258-b773-0ed0684cfe07)
+
+### Key Findings:
+
+#### Overall Recycling Performance: EU vs Global Trends
+
+From 2008 to 2018, the average e-waste recycling rate across 28 EU countries was 35.6%. This is over double the global recycling rate in 2019, which stood at just 17.4%.A positive indication that EU policy mechanisms, such as the WEEE Directive, have been relatively effective compared to global efforts. The EU's average(35.6%) outperformed the global rate (17.4%), but the 2019 figure (42.5% for Europe) indicates that progress continued post-2018, building on the trends identified.
+
+### Plot Findings
+
+### Trends and Policy Impact
+
+The line plot visualization shows the EU's e-waste recycling rate initially rose in 2008 but declined in 2009, possibly due to the financial crisis reducing recycling investments. From 2010 onward, the rate increased steadily, reflecting the success of EU policies like the WEEE Directive and improved recycling infrastructure. However, the 2009 dip underscores the need for resilient systems that withstand economic fluctuations. Moving forward, maintaining this upward trend requires stronger enforcement, innovation in recycling technologies, and enhanced public engagement.
+
+### Disparities in EU Country Performance
+
+- In the bar chart, Croatia leads with a significantly higher rate above 80% than the 10th-ranked country(Germany). Croatia, Denmark, the UK, and Bulgaria exceed the EU target(65%), but Germany falls short(<50%). The range is wide(>80% and <50%), suggesting uneven e-waste management policies across the EU.
+
+- The heatmap displays e-waste recycling rates(%) for 28 EU countries(y-axis) over the period 2008-2018(x-axis), with color intensity reflecting performance(deep green = 100%, fading to light = 25%). Countries like Croatia and Bulgaria gave a steady improvement, with recycling rates rising from light to dark green between 2012-2018 due to robust policies. Sweden's rate surged from 2008 to 2014 but dropped afterward, possibly due to temporary measures or data reporting shifts. The majority of the countries lagged, with rates near 25% in most years, suggesting persistent challenges. Economic growth, population density, or consumer behavior could influence trends but aren't visible here.
+
+- For the Top vs Bottom performance, Bulgaria performed better, whilst Malta performed poorly.
+
+### Conclusions
+
+The EU analysis foreshadowed the 2019 global trends: while Europe leads, its inconsistencies (economic sensitivity, uneven adoption) reflect broader systemic failures. By pairing 2008–2018 insights (e.g., policy-driven growth, top/bottom performers) with 2019’s 42.5% recycling rate and 16.2 kg/capita waste, we create a data-driven call to action: replicate Croatia’s success globally and address economic/policy barriers to close the e-waste gap.
