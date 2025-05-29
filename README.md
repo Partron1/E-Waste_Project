@@ -1,4 +1,4 @@
-## E-WASTE TREND ANALYSIS
+## E-WASTE TREND ANALYSIS: A DECADE OF DIGITAL DISCARD
 ## Table of Content
 - [Objective](Objective)
 - [Business Context](Business-Context)
