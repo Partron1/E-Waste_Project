@@ -11,19 +11,19 @@
 
 ### OBJECTIVE:
 
-To analyze historical e-waste recycling data across 28 EU member countries from 2008 to 2018
+**To analyze historical e-waste recycling data across 28 EU member countries from 2008 to 2018**
 
 ### BUSINESS CONTEXT:
 
 Electrical and electronic equipment (EEE) has become essential to everyday life. Its availability and widespread use have enabled much of the global population to benefit from higher living standards.
 
-- Global E-Waste Generation: In 2019, 53.6 million metric tons (Mt) of e-waste were generated worldwide. This marks an increase of 9.2 Mt since 2014.
+- Global E-Waste Generation: In 2019, **53.6 million metric tons (Mt)** of e-waste were generated worldwide. This marks an increase of **9.2 Mt since 2014**.
 
-- Recycling Shortfalls: Only 17.4% of e-waste was officially documented as properly collected and recycled in 2019. Although recycling increased by 1.8 Mt, it did not keep pace with the overall growth in e-waste.
+- Recycling Shortfalls: Only **17.4%** of e-waste was officially documented as properly collected and recycled in 2019. Although recycling increased by **1.8 Mt**, it did not keep pace with the overall growth in e-waste.
 
-- Regional Insights – Europe: Highest per capita e-waste generation: 16.2 kg per person.
+- Regional Insights – Europe: Highest per capita e-waste generation: **16.2 kg** per person.
 
-- Leading in recycling rates: 42.5% of e-waste was properly collected and recycled, the highest among all continents
+- Leading in recycling rates: **42.5%** of e-waste was properly collected and recycled, the highest among all continents
 
 Source : (Global E-waste Monitor 20220){https://www.itu.int/pub/D-GEN-E_WASTE.01-2020}
 
@@ -330,7 +330,7 @@ ggplot(selected_countries, aes(x = year, y = `e_waste_recycled`,
 
 #### Overall Recycling Performance: EU vs Global Trends
 
-From 2008 to 2018, the average e-waste recycling rate across 28 EU countries was 35.6%. This is over double the global recycling rate in 2019, which stood at just 17.4%.A positive indication that EU policy mechanisms, such as the WEEE Directive, have been relatively effective compared to global efforts. The EU's average(35.6%) outperformed the global rate (17.4%), but the 2019 figure (42.5% for Europe) indicates that progress continued post-2018, building on the trends identified.
+From **2008 to 2018**, the average e-waste recycling rate across 28 EU countries was **35.6%**. This is over double the global recycling rate in 2019, which stood at just **17.4%**.A positive indication that EU policy mechanisms, such as the WEEE Directive, have been relatively effective compared to global efforts. The EU's average **(35.6%)** outperformed the global rate **(17.4%)**, but the 2019 figure **(42.5% for Europe)** indicates that progress continued post-2018, building on the trends identified.
 
 ### Plot Findings
 
@@ -342,14 +342,14 @@ Moving forward, maintaining this upward trend requires stronger enforcement, inn
 
 ### Disparities in EU Country Performance
 
-- In the bar chart, Croatia leads with a significantly higher rate above 80% than the 10th-ranked country(Germany).
-  Croatia, Denmark, the UK, and Bulgaria exceed the EU target(65%), but Germany falls short(<50%).
-  The range is wide(>80% and <50%), suggesting uneven e-waste management policies across the EU.
+- In the bar chart, Croatia leads with a significantly higher rate above **80%** than the 10th-ranked country(Germany).
+  Croatia, Denmark, the UK, and Bulgaria exceed the EU target **(65%)**, but Germany falls short **(<50%)**.
+  The range is wide **(>80% and <50%)**, suggesting uneven e-waste management policies across the EU.
 
-- The heatmap displays e-waste recycling rates(%) for 28 EU countries(y-axis) over the period 2008-2018(x-axis), with color intensity reflecting performance(deep green = 100%, fading to light = 25%).
+- The heatmap displays e-waste recycling rates(%) for 28 EU countries(y-axis) over the period 2008-2018(x-axis), with color intensity reflecting performance **(deep green = 100%, fading to light = 25%)**.
 Countries like Croatia and Bulgaria gave a steady improvement, with recycling rates rising from light to dark green between 2012-2018 due to robust policies.
 Sweden's rate surged from 2008 to 2014 but dropped afterward, possibly due to temporary measures or data reporting shifts.
-The majority of the countries lagged, with rates near 25% in most years, suggesting persistent challenges.
+The majority of the countries lagged, with rates near **25%** in most years, suggesting persistent challenges.
 Economic growth, population density, or consumer behavior could influence trends but aren't visible here.
 
 - For the Top vs Bottom performance, Bulgaria performed better, whilst Malta performed poorly.
@@ -357,4 +357,4 @@ Economic growth, population density, or consumer behavior could influence trends
 ### Conclusions
 
 The EU analysis foreshadowed the 2019 global trends: while Europe leads, its inconsistencies (economic sensitivity, uneven adoption) reflect broader systemic failures. 
-By pairing 2008–2018 insights (e.g., policy-driven growth, top/bottom performers) with 2019’s 42.5% recycling rate and 16.2 kg/capita waste, we create a data-driven call to action: replicate Croatia’s success globally and address economic/policy barriers to close the e-waste gap.
+By pairing 2008–2018 insights (e.g., policy-driven growth, top/bottom performers) with 2019’s **42.5%** recycling rate and **16.2 kg/capita** waste, we create a data-driven call to action: replicate Croatia’s success globally and address economic/policy barriers to close the e-waste gap.
