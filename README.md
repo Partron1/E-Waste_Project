@@ -76,7 +76,7 @@ The data seems reliable. However, we should note potential sampling or data-entr
 - Shiny will be used to build a compelling dashboard.
 
 ### EXPLORATORY DATA ANALYSIS (EDA)
-
+#### Setting up my environment
 ```r load packages
 library(tidyverse) #For data manipulation and ggplot2
 library(skimr) 
@@ -84,45 +84,45 @@ library(janitor)
 library(scales) #For better axis formatting
 library(knitr) #For nice table formatting
 ```
+#### Import dataset
 ```
 # Import data from .csv file from our local computer.
 ewaste_df <- read_csv("ewaste_europe.csv")
 ```
+#### Preview dataset
 ```
 # Preview first few rows of dataset.
 head(ewaste_df)
 ```
+#### Missing values
 ```
 # Check for missing values
 colSums(is.na(ewaste_df))
 ```
+#### Examine data stucture
 ```
 # Examine the structure of the dataset
 glimpse(ewaste_df)
 ```
+#### Examine column names
 ```
 # Examine the column names
 colnames(ewaste_df)
 ```
+#### Detail dataset summary
 ```
 # Examine the detail summary of the dataset
 skim_without_charts(ewaste_df)
 ```
-```
-# Drop some critical columns that are irrelevant to the analysis.
-ewaste_filter <- ewaste_df[, -c(12, 13, 19, 21, 27)]
-```
+
 ### DATA TRANSFORMATION
 
 #### Cleaning steps:
-
-1. Loaded the dataset into R Studio
-2. Examine dataset
-3. Drop column
-4. Convert the dataset from wide to long to make it more organized and readable.
-5. Remove duplicates
-6. Remove NA values in critical columns
-7. Rename some columns
+1. Drop columns
+2. Convert the dataset from wide to long to make it more organized and readable.
+3. Remove duplicates
+4. Remove NA values in critical columns
+5. Rename some columns
 
 Note: The steps ensure that our data is clean and ready for analysis
 
@@ -132,6 +132,11 @@ Note: The steps ensure that our data is clean and ready for analysis
 
 - 90% R programming language
 
+#### Data cleaning
+```
+# Drop some critical columns that are irrelevant to the analysis.
+ewaste_filter <- ewaste_df[, -c(12, 13, 19, 21, 27)]
+```
 ```
 # Convert dataset from wide to long data type to ensure data is more organized and readable
 ewaste_clean <- ewaste_filter %>% 
@@ -150,6 +155,7 @@ ewaste_clean <- ewaste_filter %>%
     e_waste_recycled = as.numeric(e_waste_recycled)
   )
 ```
+#### Examine cleaned data
 ```
 # summary of our cleaned dataset
 summary(ewaste_clean)
@@ -162,6 +168,7 @@ table(ewaste_clean$country)
 # Examine the structure of the dataset
 glimpse(ewaste_clean)
 ```
+### DATA ANALYSIS
 #### Possible questions:
 1. Percentage of e-waste recycled over time?
 2. Which country recycled the most/least e-waste in a given year?
@@ -170,6 +177,7 @@ glimpse(ewaste_clean)
 5. How do countries compare in terms of e-waste recycling?
 6. Which countries might benefit from improved e-waste management policies?
 
+#### Average by year
 ```
 # Overall EU average by year
 yearly_avg <- ewaste_clean %>%
@@ -178,6 +186,22 @@ yearly_avg <- ewaste_clean %>%
   ) %>%
   mutate(avg_ewaste = round(avg_ewaste, 1))
 ```
+|      Year(yr)         | Average E-waste recycled(%)|
+|-----------------------|----------------------------|
+|      2008             |            32.0            |
+|      2009             |             25.7           |
+|      2010             |              26.5              |
+|      2011             |              29.4              |
+|      2012             |              31.1              |
+|      2013             |                31.7            |
+|      2014             |                35.5            |
+|      2015               |                 40.2           |
+|      2016                |                   44.8         |
+|      2017                |                 44.6           |
+|      2018             |               47.8             |
+
+
+#### Country performance
 ```
 # Country performance analysis
 country_stats <- ewaste_clean %>%
