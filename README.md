@@ -27,8 +27,6 @@ Electrical and electronic equipment (EEE) has become essential to everyday life.
 
 Source : (Global E-waste Monitor 20220){https://www.itu.int/pub/D-GEN-E_WASTE.01-2020}
 
-![picture](https://github.com/user-attachments/assets/474d25a6-4341-476f-ab9b-8243e62f9906)
-
 ### KEY STAKEHOLDERS:
 
 #### European Environmental Agency (EEA):
