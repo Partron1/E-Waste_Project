@@ -71,8 +71,6 @@ The data seems reliable. However, we should note potential sampling or data-entr
 
 - Use R Markdown to save and present results.
 
-- Shiny will be used to build a compelling dashboard.
-
 ### EXPLORATORY DATA ANALYSIS (EDA)
 #### Setting up my environment
 ```r load packages
