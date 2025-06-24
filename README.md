@@ -1,13 +1,13 @@
 ## E-WASTE TREND ANALYSIS: A DECADE OF DIGITAL DISCARD
 ## Table of Content
-- [Objective](Objective)
-- [Business Context](Business-Context)
-- [Key Stakeholders](Key-Stakeholders)
-- [Business Questions](Business-Questions)
-- [Data Description](Data-Description)
-- [Exploratory Data Analysis](Exploratory-Data-Analysis(EDA))
-- [Data Transformation](Data-Transformation)
-- [Visualization](Visualization)
+- [Objective](#Objective)
+- [Business Context](#business-context)
+- [Key Stakeholders](#key-stakeholders)
+- [Business Questions](#business-questions)
+- [Data Description](#data-description)
+- [Exploratory Data Analysis](#exploratory-data-analysis(EDA))
+- [Data Transformation](#data-transformation)
+- [Visualization](#visualization)
 
 ### OBJECTIVE:
 
