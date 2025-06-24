@@ -9,7 +9,7 @@
 - [Data Transformation](#data-transformation)
 - [Visualization](#visualization)
 - [Key Findings](#key-findings)
-- [Conclusion](#conclusion)
+- [Conclusions](#conclusions)
 
 ### OBJECTIVE:
 
