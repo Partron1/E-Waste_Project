@@ -8,6 +8,7 @@
 - [Exploratory Data Analysis](#exploratory-data-analysis(EDA))
 - [Data Transformation](#data-transformation)
 - [Visualization](#visualization)
+- [Key Findings](#key-findings)
 
 ### OBJECTIVE:
 
