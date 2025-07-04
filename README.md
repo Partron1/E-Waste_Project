@@ -31,19 +31,13 @@ Source : (Global E-waste Monitor 20220){https://www.itu.int/pub/D-GEN-E_WASTE.01
 
 ### KEY STAKEHOLDERS:
 
-#### European Environmental Agency (EEA):
+- **European Environmental Agency (EEA):** Assessing policy effectiveness and setting new e-waste reduction targets.
 
-Assessing policy effectiveness and setting new e-waste reduction targets.
+- **Recycling and waste management companies:** Identifying high-growth markets for e-waste processing.
 
-#### Recycling and waste management companies:
+- **Tech and Electronic Manufacturers:** Understanding consumer disposal trends for product life-cycle planning.
 
-Identifying high-growth markets for e-waste processing.
-
-#### Tech and Electronic Manufacturers:  
-Understanding consumer disposal trends for product life-cycle planning.
-
-#### Sustainability NGOs and Research Institutions:
-Advocating for better e-waste policies and public awareness.
+- **Sustainability NGOs and Research Institutions:** Advocating for better e-waste policies and public awareness.
 
 ### BUSINESS QUESSIONS:
 
@@ -53,17 +47,11 @@ Advocating for better e-waste policies and public awareness.
 
 ### DATA DESCRIPTION
 
-#### Data sources:
+- **Data sources:** The EU e-waste recycling public dataset was downloaded from Kaggle.
 
-The EU e-waste recycling public dataset was downloaded from Kaggle.
+- **Data type:** Structured data organized in a .csv file
 
-#### Data type:
-
-Structured data organized in a .csv file
-
-#### Credibility:
-
-The data seems reliable. However, we should note potential sampling or data-entry errors.
+- **Credibility:** The data seems reliable. However, we should note potential sampling or data-entry errors.
 
 #### Plan:
 
