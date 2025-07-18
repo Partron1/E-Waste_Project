@@ -1,5 +1,5 @@
-## E-WASTE TREND ANALYSIS: A DECADE OF DIGITAL DISCARD
-## Table of Content
+### E-WASTE TREND ANALYSIS: A DECADE OF DIGITAL DISCARD
+### Table of Content
 - [Objective](#Objective)
 - [Business Context](#business-context)
 - [Key Stakeholders](#key-stakeholders)
@@ -11,11 +11,11 @@
 - [Key Findings](#key-findings)
 - [Conclusions](#conclusions)
 
-### OBJECTIVE:
+### Objective:
 
 **To analyze historical e-waste recycling data across 28 EU member countries from 2008 to 2018**
 
-### BUSINESS CONTEXT:
+### Business Context:
 
 Electrical and electronic equipment (EEE) has become essential to everyday life. Its availability and widespread use have enabled much of the global population to benefit from higher living standards.
 
@@ -29,7 +29,7 @@ Electrical and electronic equipment (EEE) has become essential to everyday life.
 
 Source : (Global E-waste Monitor 20220){https://www.itu.int/pub/D-GEN-E_WASTE.01-2020}
 
-### KEY STAKEHOLDERS:
+### Key Stakeholders:
 
 - **European Environmental Agency (EEA):** Assessing policy effectiveness and setting new e-waste reduction targets.
 
@@ -39,13 +39,13 @@ Source : (Global E-waste Monitor 20220){https://www.itu.int/pub/D-GEN-E_WASTE.01
 
 - **Sustainability NGOs and Research Institutions:** Advocating for better e-waste policies and public awareness.
 
-### BUSINESS QUESSIONS:
+### Business Question:
 
 1. How has e-waste recycling evolved in EU countries over the past decade?
 2. Which countries have the highest/lowest e-waste recycling rate, and what factors contribute to these trends?
 3. Can we predict future e-waste volumes based on historical trends?  
 
-### DATA DESCRIPTION
+### Data Description
 
 - **Data sources:** The EU e-waste recycling public dataset was downloaded from Kaggle.
 
@@ -61,7 +61,7 @@ Source : (Global E-waste Monitor 20220){https://www.itu.int/pub/D-GEN-E_WASTE.01
 
 - Use R Markdown to save and present results.
 
-### EXPLORATORY DATA ANALYSIS (EDA)
+### Exploratory Data Analysis (EDA)
 #### Setting up my environment
 ```r load packages
 library(tidyverse) #For data manipulation and ggplot2
@@ -101,7 +101,7 @@ colnames(ewaste_df)
 skim_without_charts(ewaste_df)
 ```
 
-### DATA TRANSFORMATION
+### Data Transformation
 
 #### Cleaning steps:
 1. Drop columns
@@ -154,7 +154,7 @@ table(ewaste_clean$country)
 # Examine the structure of the dataset
 glimpse(ewaste_clean)
 ```
-### DATA ANALYSIS
+### Data Analysis
 #### Possible questions:
 1. Percentage of e-waste recycled over time?
 2. Which country recycled the most/least e-waste in a given year?
