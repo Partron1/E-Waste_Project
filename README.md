@@ -316,15 +316,17 @@ ggplot(selected_countries, aes(x = year, y = `e_waste_recycled`,
 
 #### Overall Recycling Performance: EU vs Global Trends
 
-From **2008 to 2018**, the average e-waste recycling rate across 28 EU countries was **35.6%**. This is over double the global recycling rate in 2019, which stood at just **17.4%**.A positive indication that EU policy mechanisms, such as the WEEE Directive, have been relatively effective compared to global efforts. The EU's average **(35.6%)** outperformed the global rate **(17.4%)**, but the 2019 figure **(42.5% for Europe)** indicates that progress continued post-2018, building on the trends identified.
+Between **2008** and **2018**, the EU's average e-waste recycling rate was **35.6%**, over twice the global rate of **17.4% in 2019**.
+This suggests EU policies like the WEEE Directive have been relatively effective.
+By **2019**, Europe's rate rose to **42.5%**, showing continued progress.
 
 ### Plot Findings
 
 ### Trends and Policy Impact
 
-The line plot visualization shows the EU's e-waste recycling rate initially rose in 2008 but declined in 2009, possibly due to the financial crisis reducing recycling investments. From 2010 onward, the rate increased steadily, reflecting the success of EU policies like the WEEE Directive and improved recycling infrastructure. 
-However, the 2009 dip underscores the need for resilient systems that withstand economic fluctuations. 
-Moving forward, maintaining this upward trend requires stronger enforcement, innovation in recycling technologies, and enhanced public engagement.
+The EU's e-waste recycling rate dipped in **2009**, likely due to the financial crisis, but rose steadily from **2010** onward.
+This growth reflects effective policies like the WEEE Directive and better recycling infrastructure.
+To sustain progress, stronger enforcement, technological innovation, and public engagement are essential.
 
 ### Disparities in EU Country Performance
 
@@ -332,15 +334,14 @@ Moving forward, maintaining this upward trend requires stronger enforcement, inn
   Croatia, Denmark, the UK, and Bulgaria exceed the EU target **(65%)**, but Germany falls short **(<50%)**.
   The range is wide **(>80% and <50%)**, suggesting uneven e-waste management policies across the EU.
 
-- The heatmap displays e-waste recycling rates(%) for 28 EU countries(y-axis) over the period 2008-2018(x-axis), with color intensity reflecting performance **(deep green = 100%, fading to light = 25%)**.
-Countries like Croatia and Bulgaria gave a steady improvement, with recycling rates rising from light to dark green between 2012-2018 due to robust policies.
-Sweden's rate surged from 2008 to 2014 but dropped afterward, possibly due to temporary measures or data reporting shifts.
-The majority of the countries lagged, with rates near **25%** in most years, suggesting persistent challenges.
-Economic growth, population density, or consumer behavior could influence trends but aren't visible here.
-
+- The heatmap shows e-waste recycling rates **(2008–2018)** for 28 EU countries, with deeper green indicating higher performance.
+**Croatia and Bulgaria** steadily improved from **2012–2018**, reflecting strong policies.
+**Sweden** saw a sharp rise until **2014**, followed by a decline, possibly due to policy or reporting changes.
+Most countries remained near **25%**, indicating ongoing challenges not explained by the heatmap alone.
 - For the Top vs Bottom performance, Bulgaria performed better, whilst Malta performed poorly.
 
 ### Conclusions
 
-The EU analysis foreshadowed the 2019 global trends: while Europe leads, its inconsistencies (economic sensitivity, uneven adoption) reflect broader systemic failures. 
-By pairing 2008–2018 insights (e.g., policy-driven growth, top/bottom performers) with 2019’s **42.5%** recycling rate and **16.2 kg/capita** waste, we create a data-driven call to action: replicate Croatia’s success globally and address economic/policy barriers to close the e-waste gap.
+The EU’s **2008–2018** e-waste trends highlight policy-driven progress but also reveal vulnerabilities like economic sensitivity and uneven adoption.
+Europe’s **2019 rate of 42.5% and 16.2 kg/capita waste*** underscores both leadership and the scale of the challenge.
+Global efforts should replicate successful models like **Croatia’s** and tackle systemic policy and economic barriers.
