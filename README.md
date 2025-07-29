@@ -91,8 +91,8 @@ colSums(is.na(ewaste_df))
 glimpse(ewaste_df)
 ```
 #### *Examine column names*
-```
-# Examine the column names
+```{r examine data clounms}
+# This is to ensure that all the critical columns needed for the analysis are intact
 colnames(ewaste_df)
 ```
 #### *Detail dataset summary*
@@ -343,5 +343,5 @@ Most countries remained near **25%**, indicating ongoing challenges not explaine
 ### Conclusions
 
 The EU’s **2008–2018** e-waste trends highlight policy-driven progress but also reveal vulnerabilities like economic sensitivity and uneven adoption.
-Europe’s **2019 rate of 42.5% and 16.2 kg/capita waste*** underscores both leadership and the scale of the challenge.
+Europe’s **2019 rate of 42.5% and 16.2 kg/capita waste** underscores both leadership and the scale of the challenge.
 Global efforts should replicate successful models like **Croatia’s** and tackle systemic policy and economic barriers.
