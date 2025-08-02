@@ -27,7 +27,7 @@ Electrical and electronic equipment (EEE) has become essential to everyday life.
 
 - *Leading in recycling rates: **42.5%** of e-waste was properly collected and recycled, the highest among all continents.*
 
-**Reference** : (Global E-waste Monitor 20220){https://www.itu.int/pub/D-GEN-E_WASTE.01-2020}
+**Reference** : [Global E-waste Monitor 20220](https://www.itu.int/pub/D-GEN-E_WASTE.01-2020)
 
 ### Key Stakeholders:
 
