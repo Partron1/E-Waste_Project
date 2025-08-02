@@ -1,4 +1,4 @@
-### E-WASTE TREND ANALYSIS: A DECADE OF DIGITAL DISCARD
+### E-WASTE TREND ANALYSIS: *A Decade Of Digital Discard*
 ### Table of Content
 - [Objective](#Objective)
 - [Business Context](#business-context)
@@ -23,7 +23,7 @@ Electrical and electronic equipment (EEE) has become essential to everyday life.
 
 - *Recycling Shortfalls: Only **17.4%** of e-waste was officially documented as properly collected and recycled in 2019. Although recycling increased by **1.8 Mt**, it did not keep pace with the overall growth in e-waste.*
 
-- *Regional Insights – Europe: Highest per capita e-waste generation: **16.2 kg** per person.*
+- *Regional Insights – **Europe**: Highest per capita e-waste generation(**16.2 kg** per person).*
 
 - *Leading in recycling rates: **42.5%** of e-waste was properly collected and recycled, the highest among all continents.*
 
@@ -59,10 +59,10 @@ Electrical and electronic equipment (EEE) has become essential to everyday life.
 
 - Use R Studio to process, analyze, and visualize the data.
 
-- Use R Markdown to save and present results.
+- Use R Markdown to save project.
 
 ### Exploratory Data Analysis (EDA)
-#### *Setting up my environment*
+#### *Setting up environment*
 ```r load packages
 library(tidyverse) #For data manipulation and ggplot2
 library(skimr) 
@@ -110,7 +110,7 @@ skim_without_charts(ewaste_df)
 4. Remove NA values in critical columns
 5. Rename some columns
 
-Note: The steps ensure that our data is clean and ready for analysis
+*Note: The steps ensure that our data is clean and ready for analysis*
 
 ### Tools Used:
 
