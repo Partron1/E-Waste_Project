@@ -77,7 +77,7 @@ library(knitr) #For nice table formatting
 ewaste_df <- read_csv("ewaste_europe.csv")
 ```
 #### *Preview dataset*
-```
+```r
 # Preview first few rows of dataset.
 head(ewaste_df)
 ```
