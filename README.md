@@ -63,7 +63,8 @@ Electrical and electronic equipment (EEE) has become essential to everyday life.
 
 ### Exploratory Data Analysis (EDA)
 #### *Setting up environment*
-```r load packages
+```r
+# load packages
 library(tidyverse) #For data manipulation and ggplot2
 library(skimr) 
 library(janitor)
@@ -71,7 +72,7 @@ library(scales) #For better axis formatting
 library(knitr) #For nice table formatting
 ```
 #### *Import dataset*
-```
+```r
 # Import data from .csv file from our local computer.
 ewaste_df <- read_csv("ewaste_europe.csv")
 ```
@@ -81,22 +82,23 @@ ewaste_df <- read_csv("ewaste_europe.csv")
 head(ewaste_df)
 ```
 #### *Missing values*
-```
+```r
 # Check for missing values
 colSums(is.na(ewaste_df))
 ```
 #### *Examine data stucture*
-```
+```r
 # Examine the structure of the dataset
 glimpse(ewaste_df)
 ```
 #### *Examine column names*
-```{r examine data clounms}
+```r
+{r examine data clounms}
 # This is to ensure that all the critical columns needed for the analysis are intact
 colnames(ewaste_df)
 ```
 #### *Detail dataset summary*
-```
+```r
 # Examine the detail summary of the dataset
 skim_without_charts(ewaste_df)
 ```
@@ -119,11 +121,11 @@ skim_without_charts(ewaste_df)
 - 90% R programming language
 
 #### Data cleaning
-```
+```r
 # Drop some critical columns that are irrelevant to the analysis.
 ewaste_filter <- ewaste_df[, -c(12, 13, 19, 21, 27)]
 ```
-```
+```r
 # Convert dataset from wide to long data type to ensure data is more organized and readable
 ewaste_clean <- ewaste_filter %>% 
   pivot_longer(
@@ -142,15 +144,15 @@ ewaste_clean <- ewaste_filter %>%
   )
 ```
 #### *Examine cleaned data*
-```
+```r
 # summary of our cleaned dataset
 summary(ewaste_clean)
 ```
-```
+```r
 # Examine the table of the cleaned data
 table(ewaste_clean$country)
 ```
-```
+```r
 # Examine the structure of the dataset
 glimpse(ewaste_clean)
 ```
@@ -164,7 +166,7 @@ glimpse(ewaste_clean)
 6. Which countries might benefit from improved e-waste management policies?
 
 #### Average by year
-```
+```r
 # Overall EU average by year
 yearly_avg <- ewaste_clean %>%
   group_by(year) %>%
@@ -188,7 +190,7 @@ yearly_avg <- ewaste_clean %>%
 
 
 #### Country performance
-```
+```r
 # Country performance analysis
 country_stats <- ewaste_clean %>%
   group_by(country) %>%
@@ -204,7 +206,7 @@ country_stats <- ewaste_clean %>%
 ### Visualizations:
 
 #### *Time Series of EU Average*
-```
+```r
 ggplot(yearly_avg, aes(x = year, y = avg_ewaste )) +
   geom_line(color = "#006837", size = 1.3) +
   geom_point(color = "#006837", size = 3) +
@@ -229,7 +231,7 @@ ggplot(yearly_avg, aes(x = year, y = avg_ewaste )) +
 ![000010](https://github.com/user-attachments/assets/c71d7a50-4827-43e4-9003-10646b9db311)
 
 ### *Country Comparison(latest year)*
-```
+```r
 # Get latest year data
 latest_year <- max(ewaste_clean$year)
 
@@ -262,7 +264,7 @@ ggplot(latest_data, aes(x = reorder(country, `e_waste_recycled`),
 ![000013](https://github.com/user-attachments/assets/a52e5039-3491-442e-a321-386c0ba750e3)
 
 ### *Heatmap of All Countiries Overtime*
-```
+```r
 ggplot(ewaste_clean, aes(x = year, y = country, fill = `e_waste_recycled`)
        ) + 
   geom_tile() + 
@@ -280,7 +282,7 @@ ggplot(ewaste_clean, aes(x = year, y = country, fill = `e_waste_recycled`)
 ![000012](https://github.com/user-attachments/assets/920bba00-94ea-4336-ac79-9683a7e56e17)
 
 ### *Top & Bottom Performers Comparison*
-```
+```r
 # Identify top and bottom performers
 top_countries <- country_stats %>%
   slice_max(avg_rate, n = 5) %>%
