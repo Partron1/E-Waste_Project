@@ -70,7 +70,7 @@ library(skimr)
 library(janitor)
 library(scales) #For better axis formatting
 library(knitr) #For nice table formatting
-```
+
 #### *Import dataset*
 ```r
 # Import data from .csv file from our local computer.
