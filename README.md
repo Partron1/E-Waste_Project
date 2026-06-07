@@ -1,4 +1,4 @@
-### E-WASTE TREND ANALYSIS: *A Decade Of Digital Discard*
+### E-Waste Trend Analysis: A Decade Of Digital Discard
 ### Table of Content
 
 - [Objective](#Objective)
