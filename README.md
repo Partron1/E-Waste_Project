@@ -1,6 +1,6 @@
 ### E-WASTE TREND ANALYSIS: *A Decade Of Digital Discard*
 ### Table of Content
-```text
+
 - [Objective](#Objective)
 - [Business Context](#business-context)
 - [Key Stakeholders](#key-stakeholders)
@@ -11,7 +11,7 @@
 - [Visualization](#visualization)
 - [Key Findings](#key-findings)
 - [Conclusions](#conclusions)
-```
+
 ### Objective:
 
 **To analyze historical e-waste recycling data across 28 EU member countries from 2008 to 2018**
