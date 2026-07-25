@@ -1,5 +1,5 @@
 ### E-Waste Trend Analysis: A Decade Of Digital Discard
-### Table of Content
+**Table of Content**
 
 - [Objective](#Objective)
 - [Business Context](#business-context)
@@ -12,11 +12,10 @@
 - [Key Findings](#key-findings)
 - [Conclusions](#conclusions)
 
-### Objective:
+**Objective:**
+To analyze historical e-waste recycling data across 28 EU member countries from 2008 to 2018
 
-**To analyze historical e-waste recycling data across 28 EU member countries from 2008 to 2018**
-
-### Business Context:
+**Business Context:**
 
 Electrical and electronic equipment (EEE) has become essential to everyday life. Its availability and widespread use have enabled much of the global population to benefit from higher living standards.
 
@@ -30,7 +29,7 @@ Electrical and electronic equipment (EEE) has become essential to everyday life.
 
 [Read More...](https://www.itu.int/pub/D-GEN-E_WASTE.01-2020)
 
-### Key Stakeholders:
+**Key Stakeholders:**
 
 - **European Environmental Agency (EEA):** *Assessing policy effectiveness and setting new e-waste reduction targets.*
 
@@ -40,13 +39,13 @@ Electrical and electronic equipment (EEE) has become essential to everyday life.
 
 - **Sustainability NGOs and Research Institutions:** *Advocating for better e-waste policies and public awareness.*
 
-### Business Question:
+**Business Question:**
 
 1. How has e-waste recycling evolved in EU countries over the past decade?
 2. Which countries have the highest/lowest e-waste recycling rate, and what factors contribute to these trends?
 3. Can we predict future e-waste volumes based on historical trends?  
 
-### Data Description
+**Data Description**
 
 - **Data sources:** *The EU e-waste recycling public dataset was downloaded from Kaggle.*
 
@@ -54,7 +53,7 @@ Electrical and electronic equipment (EEE) has become essential to everyday life.
 
 - **Credibility:** *The data seems reliable. However, we should note potential sampling or data-entry errors.*
 
-#### Plan:
+**Plan:**
 
 - Clean dataset with R
 
@@ -62,8 +61,10 @@ Electrical and electronic equipment (EEE) has become essential to everyday life.
 
 - Use R Markdown to save project.
 
-### Exploratory Data Analysis (EDA)
-#### *Setting up environment*
+#### Exploratory Data Analysis (EDA)
+
+**Setting up environment**
+
 ```r
 # load packages
 library(tidyverse) #For data manipulation and ggplot2
@@ -72,41 +73,47 @@ library(janitor)
 library(scales) #For better axis formatting
 library(knitr) #For nice table formatting
 
-#### *Import dataset*
+**Import dataset**
+
 ```r
 # Import data from .csv file from our local computer.
 ewaste_df <- read_csv("ewaste_europe.csv")
 ```
-#### *Preview dataset*
+**Preview dataset**
+
 ```r
 # Preview first few rows of dataset.
 head(ewaste_df)
 ```
-#### *Missing values*
+**Missing values**
+
 ```r
 # Check for missing values
 colSums(is.na(ewaste_df))
 ```
-#### *Examine data stucture*
+**Examine data stucture**
+
 ```r
 # Examine the structure of the dataset
 glimpse(ewaste_df)
 ```
-#### *Examine column names*
+**Examine column names**
+
 ```r
 {r examine data clounms}
 # This is to ensure that all the critical columns needed for the analysis are intact
 colnames(ewaste_df)
 ```
-#### *Detail dataset summary*
+**Detail dataset summary**
+
 ```r
 # Examine the detail summary of the dataset
 skim_without_charts(ewaste_df)
 ```
 
-### Data Transformation
+**Data Transformation**
 
-#### *Cleaning steps:*
+**Cleaning steps:**
 1. Drop columns
 2. Convert the dataset from wide to long to make it more organized and readable.
 3. Remove duplicates
@@ -115,13 +122,14 @@ skim_without_charts(ewaste_df)
 
 *Note: The steps ensure that our data is clean and ready for analysis*
 
-### Tools Used:
+**Tools Used:**
 
 - 10% Excel
 
 - 90% R programming language
 
-#### Data cleaning
+**Data cleaning**
+
 ```r
 # Drop some critical columns that are irrelevant to the analysis.
 ewaste_filter <- ewaste_df[, -c(12, 13, 19, 21, 27)]
@@ -144,7 +152,8 @@ ewaste_clean <- ewaste_filter %>%
     e_waste_recycled = as.numeric(e_waste_recycled)
   )
 ```
-#### *Examine cleaned data*
+**Examine cleaned data**
+
 ```r
 # summary of our cleaned dataset
 summary(ewaste_clean)
@@ -157,8 +166,9 @@ table(ewaste_clean$country)
 # Examine the structure of the dataset
 glimpse(ewaste_clean)
 ```
-### Data Analysis
-#### *Possible questions:*
+**Data Analysis**
+
+**Possible questions:**
 1. Percentage of e-waste recycled over time?
 2. Which country recycled the most/least e-waste in a given year?
 3. Are there upward or downward trends in e-waste recycling across countries?
@@ -166,7 +176,8 @@ glimpse(ewaste_clean)
 5. How do countries compare in terms of e-waste recycling?
 6. Which countries might benefit from improved e-waste management policies?
 
-#### Average by year
+**Average by year**
+
 ```r
 # Overall EU average by year
 yearly_avg <- ewaste_clean %>%
@@ -190,7 +201,8 @@ yearly_avg <- ewaste_clean %>%
 |      2018             |            47.8            |
 
 
-#### Country performance
+**Country performance**
+
 ```r
 # Country performance analysis
 country_stats <- ewaste_clean %>%
@@ -204,9 +216,10 @@ country_stats <- ewaste_clean %>%
   mutate(avg_rate = round(avg_rate, 1)) %>%
   arrange(desc(avg_rate))
 ```
-### Visualizations:
+**Visualizations:**
 
-#### *Time Series of EU Average*
+**Time Series of EU Average**
+
 ```r
 ggplot(yearly_avg, aes(x = year, y = avg_ewaste )) +
   geom_line(color = "#006837", size = 1.3) +
@@ -231,7 +244,8 @@ ggplot(yearly_avg, aes(x = year, y = avg_ewaste )) +
 ```
 ![000010](https://github.com/user-attachments/assets/c71d7a50-4827-43e4-9003-10646b9db311)
 
-### *Country Comparison(latest year)*
+**Country Comparison(latest year)**
+
 ```r
 # Get latest year data
 latest_year <- max(ewaste_clean$year)
@@ -264,7 +278,8 @@ ggplot(latest_data, aes(x = reorder(country, `e_waste_recycled`),
 ```
 ![000013](https://github.com/user-attachments/assets/a52e5039-3491-442e-a321-386c0ba750e3)
 
-### *Heatmap of All Countiries Overtime*
+**Heatmap of All Countiries Overtime**
+
 ```r
 ggplot(ewaste_clean, aes(x = year, y = country, fill = `e_waste_recycled`)
        ) + 
@@ -282,7 +297,8 @@ ggplot(ewaste_clean, aes(x = year, y = country, fill = `e_waste_recycled`)
 ```
 ![000012](https://github.com/user-attachments/assets/920bba00-94ea-4336-ac79-9683a7e56e17)
 
-### *Top & Bottom Performers Comparison*
+**Top & Bottom Performers Comparison**
+
 ```r
 # Identify top and bottom performers
 top_countries <- country_stats %>%
@@ -315,23 +331,23 @@ ggplot(selected_countries, aes(x = year, y = `e_waste_recycled`,
 ```
 ![000014](https://github.com/user-attachments/assets/f541e9ac-7739-4258-b773-0ed0684cfe07)
 
-### Key Findings:
+**Key Findings:**
 
-#### *Overall Recycling Performance: EU vs Global Trends*
+**Overall Recycling Performance: EU vs Global Trends**
 
 Between **2008** and **2018**, the EU's average e-waste recycling rate was **35.6%**, over twice the global rate of **17.4% in 2019**.
 This suggests EU policies like the WEEE Directive have been relatively effective.
 By **2019**, Europe's rate rose to **42.5%**, showing continued progress.
 
-### Plot Findings
+**Plot Findings**
 
-### *Trends and Policy Impact*
+**Trends and Policy Impact**
 
 The EU's e-waste recycling rate dipped in **2009**, likely due to the financial crisis, but rose steadily from **2010** onward.
 This growth reflects effective policies like the WEEE Directive and better recycling infrastructure.
 To sustain progress, stronger enforcement, technological innovation, and public engagement are essential.
 
-### *Disparities in EU Country Performance*
+**Disparities in EU Country Performance**
 
 - In the bar chart, Croatia leads with a significantly higher rate above **80%** than the 10th-ranked country(Germany).
   Croatia, Denmark, the UK, and Bulgaria exceed the EU target **(65%)**, but Germany falls short **(<50%)**.
@@ -343,7 +359,7 @@ To sustain progress, stronger enforcement, technological innovation, and public 
 Most countries remained near **25%**, indicating ongoing challenges not explained by the heatmap alone.
 - For the Top vs Bottom performance, Bulgaria performed better, whilst Malta performed poorly.
 
-### Conclusions
+**Conclusions**
 
 The EU’s **2008–2018** e-waste trends highlight policy-driven progress but also reveal vulnerabilities like economic sensitivity and uneven adoption.
 Europe’s **2019 rate of 42.5% and 16.2 kg/capita waste** underscores both leadership and the scale of the challenge.
