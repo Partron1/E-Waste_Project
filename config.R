@@ -19,7 +19,7 @@ dir.create(PATH_OUTPUT_TABLES, showWarnings = FALSE)
 # ============================================================================
 # DATA FILE PATHS
 # ============================================================================
-FILE_EWASTE_RAW <- file.path(PATH_DATA, "ewaste_europe (1).csv")
+FILE_EWASTE_RAW <- file.path(PATH_DATA, "ewaste_europe.csv")
 
 # ============================================================================
 # OUTPUT FILE NAMES
