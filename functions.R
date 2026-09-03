@@ -99,7 +99,7 @@ get_top_bottom_performers <- function(country_stats, n = 5) {
 #'
 plot_time_series <- function(yearly_avg) {
   ggplot(yearly_avg, aes(x = year, y = avg_ewaste)) +
-    geom_line(color = COLOR_PRIMARY, size = 1.3) +
+    geom_line(color = COLOR_PRIMARY, linewidth = 1.3) +
     geom_point(color = COLOR_PRIMARY, size = 3) +
     labs(
       title = "EU Average E-Waste Recycling Rate Over Time",
@@ -181,7 +181,7 @@ plot_top_vs_bottom <- function(ewaste_clean, country_stats, n = 5) {
     filter(country %in% selected_countries_list)
   
   ggplot(selected_countries, aes(x = year, y = e_waste_recycled, color = country, group = country)) +
-    geom_line(size = 1) +
+    geom_line(linewidth = 1) +
     geom_point(size = 3) +
     labs(
       title = "E-Waste Recycling Rate Trends: Top vs Bottom Performers",
