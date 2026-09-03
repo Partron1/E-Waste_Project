@@ -1,4 +1,23 @@
-output/
-.RData
+# R Files
 .Rhistory
+.RData
+.Rproj.user
 *.Rproj
+
+# Output directories
+output/
+
+# Large files
+*.csv.bak
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Temporary files
+*~
+*.tmp
