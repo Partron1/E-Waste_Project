@@ -5,10 +5,14 @@ library(janitor)
 library(scales) #For better axis formatting
 library(knitr) #For nice table formatting
 
+# Load configuration and functions
+source("config.R")
+source("functions.R")
+
 # Import dataset
 
 # Import data from .csv file from our local computer.
-ewaste_df <- read_csv("ewaste_europe.csv")
+ewaste_df <- read_csv(FILE_EWASTE_RAW)
 
 # Preview first few rows of dataset.
 head(ewaste_df)
@@ -19,17 +23,20 @@ colSums(is.na(ewaste_df))
 # Examine the structure of the dataset
 glimpse(ewaste_df)
 
-{r examine data clounms}
+# Examine column names
 # This is to ensure that all the critical columns needed for the analysis are intact
 colnames(ewaste_df)
 
 # Examine the detail summary of the dataset
 skim_without_charts(ewaste_df)
 
+# Clean the data
+ewaste_clean <- clean_ewaste_data(ewaste_df)
+
 # Overall EU average by year
 yearly_avg <- ewaste_clean %>%
   group_by(year) %>%
-  summarise(avg_ewaste = mean(`e_waste_recycled`, na.rm = TRUE)
+  summarise(avg_ewaste = mean(e_waste_recycled, na.rm = TRUE)
   ) %>%
   mutate(avg_ewaste = round(avg_ewaste, 1))
 
@@ -37,17 +44,17 @@ yearly_avg <- ewaste_clean %>%
 country_stats <- ewaste_clean %>%
   group_by(country) %>%
   summarise(
-    avg_rate = mean(`e_waste_recycled`),
-    min_rate = min(`e_waste_recycled`),
-    max_rate = max(`e_waste_recycled`),
-    improvement = last(`e_waste_recycled`) - first(`e_waste_recycled`)
+    avg_rate = mean(e_waste_recycled),
+    min_rate = min(e_waste_recycled),
+    max_rate = max(e_waste_recycled),
+    improvement = last(e_waste_recycled) - first(e_waste_recycled)
   ) %>%
   mutate(avg_rate = round(avg_rate, 1)) %>%
   arrange(desc(avg_rate))
 
 # Time series of EU average 
 ggplot(yearly_avg, aes(x = year, y = avg_ewaste )) +
-  geom_line(color = "#006837", size = 1.3) +
+  geom_line(color = "#006837", linewidth = 1.3) +
   geom_point(color = "#006837", size = 3) +
   labs(title = "EU Average E-Waste Recycling Rate Over Time",
        subtitle = "Yearly trend across all countries",
@@ -67,14 +74,10 @@ ggplot(yearly_avg, aes(x = year, y = avg_ewaste )) +
     plot.title = element_text(face = "bold", hjust = 0.5), 
     plot.subtitle = element_text(hjust = 0.4))
 
-# Country comparison(latest year)
+# Country comparison (latest year)
 
 # Get latest year data
 latest_year <- max(ewaste_clean$year)
-
-latest_data <- ewaste_clean %>%
-  filter(year == latest_year) %>%
-  arrange(desc(`e_waste_recycled`))
 
 # Get top 10 countries by recycling rate
 latest_data <- ewaste_clean %>% 
@@ -82,8 +85,8 @@ latest_data <- ewaste_clean %>%
   arrange(desc(e_waste_recycled)) %>% 
   slice_head(n = 10)
 
-ggplot(latest_data, aes(x = reorder(country, `e_waste_recycled`), 
-                        y = `e_waste_recycled`)
+ggplot(latest_data, aes(x = reorder(country, e_waste_recycled), 
+                        y = e_waste_recycled)
        ) + 
   geom_col(fill = "#006837", width = 0.6) +
   coord_flip() +
@@ -99,7 +102,7 @@ ggplot(latest_data, aes(x = reorder(country, `e_waste_recycled`),
     plot.title = element_text(face = "bold", hjust = 0.5))
 
 # Heatmap of all countries overtime 
-ggplot(ewaste_clean, aes(x = year, y = country, fill = `e_waste_recycled`)
+ggplot(ewaste_clean, aes(x = year, y = country, fill = e_waste_recycled)
        ) + 
   geom_tile() + 
   scale_fill_gradient(low = "#ffffcc", high = "#006837", 
@@ -125,10 +128,10 @@ bottom_countries <- country_stats %>%
 selected_countries <- ewaste_clean %>%
   filter(country %in% c(top_countries, bottom_countries))
 
-ggplot(selected_countries, aes(x = year, y = `e_waste_recycled`, 
+ggplot(selected_countries, aes(x = year, y = e_waste_recycled, 
                               color = country, group = country)
        ) +
-  geom_line(size = 1) +
+  geom_line(linewidth = 1) +
   geom_point(size = 3) +
   labs(title = "E-Waste Recycling Rate Trends: Top vs Bottom Performers",
        x = "Year",
