@@ -1,7 +1,7 @@
 # Project Structure Guide
 
 ## Overview
-``text
+```text
 
 This project is now organized into modular, reusable R scripts that follow a clear data analysis pipeline:
 
@@ -26,4 +26,4 @@ This project is now organized into modular, reusable R scripts that follow a cle
     ├── 02_data_cleaning.R
     ├── 03_analysis.R
     └── 04_visualization.R
-``
+```
