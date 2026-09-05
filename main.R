@@ -17,7 +17,7 @@ start_time <- Sys.time()
 
 cat("\n")
 cat("╔════════════════════════════════════════════════════════════════════╗\n")
-cat("║        E-WASTE TREND ANALYSIS: FULL PIPELINE EXECUTION            ║\n")
+cat("║        E-WASTE TREND ANALYSIS: FULL PIPELINE EXECUTION             ║\n")
 cat("║                   From clicks-to-waste                             ║\n")
 cat("╚════════════════════════════════════════════════════════════════════╝\n")
 cat("\nStarted at:", format(start_time, "%Y-%m-%d %H:%M:%S"), "\n")
