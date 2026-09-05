@@ -130,7 +130,7 @@ latest_data <- ewaste_clean %>%
   arrange(desc(e_waste_recycled)) %>% 
   slice_head(n = 10) %>%
   mutate(
-    performance = ifelse(e_waste_recycled >= median(latest_data$e_waste_recycled), 
+    performance = ifelse(e_waste_recycled >= median(e_waste_recycled), 
                          "Above Median", "Below Median"),
     country = fct_reorder(country, e_waste_recycled)
   )
