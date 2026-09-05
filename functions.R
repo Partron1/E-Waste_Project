@@ -13,7 +13,16 @@
 #' @return Cleaned dataframe in long format
 #'
 clean_ewaste_data <- function(ewaste_df) {
-  ewaste_filter <- ewaste_df[, -c(12, 13, 19, 21, 27)]  # Drop irrelevant columns
+  excluded_columns <- c(
+    "European Union - 27 countries",
+    "European Union - 28 countries",
+    "Iceland",
+    "Liechtenstein",
+    "Norway"
+  )
+
+  ewaste_filter <- ewaste_df %>%
+    select(-any_of(excluded_columns))
   
   ewaste_clean <- ewaste_filter %>%
     pivot_longer(
@@ -57,6 +66,7 @@ calculate_yearly_average <- function(ewaste_clean) {
 #'
 calculate_country_stats <- function(ewaste_clean) {
   country_stats <- ewaste_clean %>%
+    arrange(country, year) %>%
     group_by(country) %>%
     summarise(
       avg_rate = mean(e_waste_recycled),
