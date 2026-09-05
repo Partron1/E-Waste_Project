@@ -31,25 +31,30 @@ cat("✓ Data loaded\n")
 
 cat("\nGenerating visualizations...\n\n")
 
-# 1. Time Series Plot
-cat("1. Creating time series plot...\n")
+# 1. Enhanced Time Series Plot with Story Elements
+cat("1. Creating enhanced time series plot...\n")
 p1 <- plot_time_series(yearly_avg)
 save_plot(p1, "01_time_series.png")
 
-# 2. Top Countries Bar Chart
-cat("2. Creating top countries bar chart...\n")
+# 2. Enhanced Top Countries Bar Chart with Diverging Colors
+cat("2. Creating top countries bar chart with performance levels...\n")
 p2 <- plot_top_countries(ewaste_clean)
 save_plot(p2, "02_top_countries.png")
 
-# 3. Heatmap
-cat("3. Creating heatmap...\n")
+# 3. Enhanced Heatmap with Annotations and Sorted Countries
+cat("3. Creating enhanced heatmap...\n")
 p3 <- plot_heatmap(ewaste_clean)
 save_plot(p3, "03_heatmap.png")
 
-# 4. Top vs Bottom Performers
-cat("4. Creating top vs bottom performers plot...\n")
+# 4. Performance Contrast Plot: Top vs Bottom Performers
+cat("4. Creating top vs bottom performers plot with facets...\n")
 p4 <- plot_top_vs_bottom(ewaste_clean, country_stats, n = 5)
 save_plot(p4, "04_top_vs_bottom.png")
+
+# 5. Improvement Analysis Plot - Showing Country Progress
+cat("5. Creating improvement analysis plot...\n")
+p5 <- plot_improvement(country_stats)
+save_plot(p5, "05_improvement_analysis.png")
 
 cat("\n✓ All visualizations created and saved to:", PATH_OUTPUT_PLOTS, "\n")
 
