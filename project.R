@@ -314,7 +314,7 @@ country_improvement <- country_stats %>%
       improvement > 10 ~ "Exceptional Growth (>10%)",
       improvement > 5 ~ "Strong Growth (5-10%)",
       improvement > 0 ~ "Modest Growth (0-5%)",
-      TRUE ~ "Decline or Stagnation (≤0%)"
+      TRUE ~ "Decline or Stagnation (<=0%)"
     ),
     color_group = ifelse(improvement >= 0, "Improvement", "Decline")
   )
