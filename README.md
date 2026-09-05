@@ -1,8 +1,6 @@
 ### E-Waste Trend Analysis: A Decade Of Digital Discard
 
-# Project Structure Guide
-
-## Overview
+#### Project Structure Guide
 
 ```text
 
