@@ -4,9 +4,6 @@
 .Rproj.user
 *.Rproj
 
-# Output directories
-output/
-
 # Large files
 *.csv.bak
 
